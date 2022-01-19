@@ -1,15 +1,23 @@
 # Ryan Lugo: RJL 1/14/22
 
+
 print('Enter the net sales for')
 
-previous = float(input('- Prior period:'))
-current = float(input('- Current period:'))
+try:
+    previous = float(input('- Prior period: '))
+    current = float(input('- Current period: '))
 
-change = (current - previous) * 100 / previous
+    change = (current - previous) * 100 / previous
 
-if change > 0:
-    result = f'Sales increase {abs(change)}%'
-else:
-    result = f'Sales decrease {abs(change)}%'
+    if change > 0:
+        result = f'Sales increase {abs(change)}%'
+    else:
+        result = f'Sales decrease {abs(change)}%'
 
-print(result)
+    print(result,"and thank you for using the program!")
+except ZeroDivisionError:
+    print("You cannot divide by zero!")
+except ValueError:
+    print("Can't convert a str to a float. Make sure to use a number not a letter!")
+finally:
+    print("Thank you for using the program!")
